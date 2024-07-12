@@ -1,4 +1,5 @@
 #include <filesystem>
+#include <fstream>
 #include <functional>
 #include <iostream>
 #include <vector>
@@ -19,6 +20,7 @@ public:
   // Buscar archivos por extensión
   void searchByExtension(const std::string &extension) const;
 
+void exportToHTML(const std::string &filename);
 private:
   fs::path root;
 
