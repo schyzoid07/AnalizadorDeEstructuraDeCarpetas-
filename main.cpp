@@ -1,48 +1,58 @@
 #include "Search.hpp"
 #include <iostream>
 
-int main() {
-  std::string dir;
-  std::cout << "Ingrese el directorio a analizar: ";
-  std::cin >> dir;
+int main() 
+{
+  string dir;
+  cout << "Ingrese el directorio a analizar: ";
+  cin >> dir;
 
   fs::path rootPath(dir);
   Search search(rootPath);
 
   int option;
-  std::cout << "Seleccione una opción:\n"
-            << "1. Presentar estructura de archivos (completa)\n"
-            << "2. Presentar estructura de archivos (solo carpetas)\n"
-            << "3. Buscar archivos por nombre\n"
-            << "4. Buscar archivos por extensión\n";
-  std::cin >> option;
+  cout << "\t\t\t\tSeleccione una opción:\n"
+            << "\t\t\t\t1. Presentar estructura de archivos (completa)\n"
+            << "\t\t\t\t2. Presentar estructura de archivos (solo carpetas)\n"
+            << "\t\t\t\t3. Buscar archivos por nombre\n"
+            << "\t\t\t\t4. Buscar archivos por extensión\n"
+            <<"\t\t\t\t5. Exportar HTML\t\t\t\t\n:";
+  cin >> option;
 
-  switch (option) {
+  switch (option)
+   {
   case 1:
     search.presentTree();
     break;
   case 2:
     search.presentTree(true);
     break;
-  case 3: {
-    std::string name;
-    std::cout << "Ingrese el nombre del archivo a buscar: ";
-    std::cin >> name;
+  case 3:
+   {
+    string name;
+    cout << "Ingrese el nombre del archivo a buscar: ";
+    cin >> name;
     search.searchByName(name);
     break;
   }
-  case 4: {
-    std::string extension;
-    std::cout << "Ingrese la extensión del archivo a buscar (incluyendo el "
+  case 4:
+   {
+    string extension;
+    cout << "Ingrese la extensión del archivo a buscar (incluyendo el "
                  "punto, e.g., .txt): ";
-    std::cin >> extension;
+    cin >> extension;
     search.searchByExtension(extension);
     break;
   }
+  case 5:
+   {
+    search.exportToHTML("archivoHTML");
+    break;
+   }
   default:
-    std::cout << "Opción no válida.\n";
+    cout << "Opción no válida.\n";
   }
-
+  system("pause");
   return 0;
 }
 
