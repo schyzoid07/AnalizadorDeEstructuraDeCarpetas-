@@ -1,8 +1,54 @@
 #include "Search.hpp"
-
+#include "../GUI/Gui.hpp"
 // Constructor de la clase Search, inicializa el directorio raíz
 Search::Search(const fs::path &root) : root(root) {}
 
+/**
+ * @brief 
+ * Este metodo crea un nuevo directorio por el usuario y permite crear mas dentro del ya creado por el usuario
+ */
+void Search::crearNuevoDirectorio()
+{
+    string option;
+
+    cout << "Quisiera crear un nuevo directorio?\n Presione Y si quiere, de lo contrario, presione N \n:";
+    cin>>option;
+   
+    if (option == "Y" || option == "y")
+    {
+        string directorio;
+
+        cout << "Introduzca el nombre del directorio a crear\n:";
+        cin>>directorio;
+        std::filesystem::create_directory(directorio);
+        cout << "Directorio creado con éxito.\n";
+        cout << "Desea crear carpetas dentro del directorio? (Y/N)\n:";
+        cin>>option;
+       
+        if (option == "Y" || option == "y")
+        {
+            string subdirectorio;
+            cout << "Introduzca el nombre de la carpeta a crear dentro del directorio\n:";
+            cin>>subdirectorio;
+           
+
+            // Crear la carpeta dentro del directorio
+            std::filesystem::path path(directorio);
+            path /= subdirectorio;
+            std::filesystem::create_directory(path);
+
+            cout << "Carpeta creada con éxito dentro del directorio.\n";
+        }
+        Gui gui;
+        gui.mostrarMenuPrincipal();
+    }
+    else
+    {
+        system("cls");
+        Gui gui;
+        gui.mostrarMenuPrincipal();
+    }
+}
 // Método público para presentar la estructura de archivos en forma de árbol
 void Search::presentTree(bool onlyDirectories) const {
   // Llama a la función auxiliar presentTreeHelper con el directorio raíz y el
