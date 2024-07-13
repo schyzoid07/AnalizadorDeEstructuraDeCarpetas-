@@ -5,12 +5,10 @@
 int main() 
 {
 
-  
-  
-Gui::mostrarMenuPrincipal();
+Gui gui;
 
+gui.mostrarMenuPrincipal();
 
-  
   system("pause");
   return 0;
 }

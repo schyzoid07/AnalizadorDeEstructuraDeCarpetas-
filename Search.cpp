@@ -1,7 +1,8 @@
 #include "Search.hpp"
-
+#include "Gui.hpp"
 
 Search::Search(const fs::path &root) : root(root) {}
+
 
 void Search::presentTree(bool onlyDirectories) const
  {
