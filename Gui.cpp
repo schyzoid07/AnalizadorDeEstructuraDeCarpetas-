@@ -11,8 +11,8 @@
   Search search(rootPath);
   while (option !=6)
   {
-    
-    cout << "\t\t\t\tSeleccione una opción:\n"
+    fflush(stdin);
+    cout << "\t\t\t\tSeleccione una opción:\n\t\t\t\t0.Crear un directorio nuevo\n"
             << "\t\t\t\t1. Presentar estructura de archivos (completa)\n"
             << "\t\t\t\t2. Presentar estructura de archivos (solo carpetas)\n"
             << "\t\t\t\t3. Buscar archivos por nombre\n"
@@ -20,9 +20,13 @@
             <<"\t\t\t\t5. Exportar HTML\t\t\t\t\n" 
             <<"\t\t\t\t6. Salir\t\t\t\t\n:";
   cin >> option;
-
+fflush(stdin);
   switch (option)
    {
+    case 0:
+    search.crearNuevoDirectorio();
+     
+    break;
   case 1:
   
     search.presentTree();

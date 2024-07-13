@@ -30,13 +30,11 @@ private:
   fs::path root;
 
   // Función auxiliar para presentar el árbol de archivos
-  void presentTreeHelper(const fs::path &path, const std::string &prefix,
-                         bool onlyDirectories) const;
+  void presentTreeHelper(const fs::path &path, const std::string &prefix,bool onlyDirectories) const;
 
   // Función auxiliar para buscar archivos
-  void searchHelper(
-      const fs::path &path,
-      const std::function<bool(const fs::directory_entry &)> &predicate,
+  void searchHelper(const fs::path &path,
+const std::function<bool(const fs::directory_entry &)> &predicate,
       std::vector<fs::directory_entry> &results) const;
 
   // Función para mostrar resultados de búsqueda
