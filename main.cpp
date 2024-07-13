@@ -1,15 +1,12 @@
-#include "Search.hpp"
-#include "Gui.hpp"
+#include "GUI/Gui.hpp"
 #include <iostream>
 
-int main() 
-{
+int main() {
 
-Gui gui;
+  Gui gui;
 
-gui.mostrarMenuPrincipal();
+  gui.mostrarMenuPrincipal();
 
   system("pause");
   return 0;
 }
-
