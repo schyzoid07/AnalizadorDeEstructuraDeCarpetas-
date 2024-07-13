@@ -11,7 +11,7 @@
   Search search(rootPath);
   while (option !=6)
   {
-    system("cls");
+    
     cout << "\t\t\t\tSeleccione una opción:\n"
             << "\t\t\t\t1. Presentar estructura de archivos (completa)\n"
             << "\t\t\t\t2. Presentar estructura de archivos (solo carpetas)\n"
@@ -24,18 +24,22 @@
   switch (option)
    {
   case 1:
-  system("cls");
+  
     search.presentTree();
+    system("pause");
+    system("cls");
     break;
   case 2:
-  system("cls");
+  
     search.presentTree(true);
+    system("pause");    
+    system("cls");
     break;
   case 3:
    {
     
     string name;
-    system("cls");
+   
     cout << "Ingrese el nombre del archivo a buscar: ";
     cin >> name;
     search.searchByName(name);
@@ -44,7 +48,7 @@
   case 4:
    {
     string extension;
-    system("cls");
+    
     cout << "Ingrese la extensión del archivo a buscar (incluyendo el "
                  "punto, e.g., .txt): ";
     cin >> extension;
@@ -53,7 +57,7 @@
   }
   case 5:
    {
-    system("cls");
+    
     search.exportToHTML("archivoHTML");
     cout<<"Archivo HTML ya exportado con exito!"<<endl;
     
@@ -63,7 +67,6 @@
     case 6:
    {
     cout<<"Progama finalizando . . .\n";
-     system("pause");
      system("exit");
 
     break;

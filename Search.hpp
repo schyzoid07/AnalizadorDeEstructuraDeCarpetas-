@@ -1,3 +1,6 @@
+#ifndef SEARCH_HPP
+#define SEARCH_HPP
+
 #include <filesystem>
 #include <fstream>
 #include <functional>
@@ -6,10 +9,12 @@
 
 namespace fs = std::filesystem;
 using namespace std;
+
 class Search {
 public:
   explicit Search(const fs::path &root);
 
+  void crearNuevoDirectorio();
   // Presentar la estructura de archivos en forma de árbol (completa o solo
   // carpetas)
   void presentTree(bool onlyDirectories = false) const;
@@ -20,7 +25,7 @@ public:
   // Buscar archivos por extensión
   void searchByExtension(const std::string &extension) const;
 
-void exportToHTML(const std::string &filename);
+  void exportToHTML(const std::string &filename);
 private:
   fs::path root;
 
@@ -37,3 +42,5 @@ private:
   // Función para mostrar resultados de búsqueda
   void displayResults(const std::vector<fs::directory_entry> &results) const;
 };
+
+#endif  // SEARCH_HPP
